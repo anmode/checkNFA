@@ -1,0 +1,29 @@
+The contents of the nfa.txt file will depend on the NFA that you want to create. The format of the file is as follows:
+
+Each line represents either a state, an accept state, or a transition.
+A state is represented by a single integer.
+An accept state is represented by two integers separated by a space, with the first integer representing the state and the second integer being 1.
+A transition is represented by three parts: the starting state, the symbol on the transition, and the ending state, all separated by spaces.
+Here is an example of an NFA that recognizes the language of all strings over the alphabet {a,b} that contain the substring "ab":
+
+0
+1
+2
+3
+4 1
+0 a 0
+0 b 0
+0 a 1
+1 b 2
+2 a 3
+3 b 4
+
+This NFA has five states (0, 1, 2, 3, and 4), with state 0 being the start state and state 4 being an accept state. The alphabet consists of the characters 'a' and 'b'. The transitions are as follows:
+
+From state 0, on input 'a', go to state 0.
+From state 0, on input 'b', go to state 0.
+From state 0, on input 'a', go to state 1.
+From state 1, on input 'b', go to state 2.
+From state 2, on input 'a', go to state 3.
+From state 3, on input 'b', go to state 4.
+To test this NFA, you could create a file called nfa.txt and copy the above lines into it. Then you could create a file called input.txt and put any string you want to test in it (for example, "ababab"). Finally, you can run the Main class you provided in your earlier message to see if the NFA accepts the input string or not.
