@@ -23,6 +23,7 @@ public class NFA {
         for (char c : input.toCharArray()) {
             currentStates = move(currentStates, c);
             currentStates = epsilonClosure(currentStates);
+            System.out.println("Current State: " + currentStates);
         }
         return !Collections.disjoint(currentStates, acceptStates);
     }

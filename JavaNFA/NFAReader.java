@@ -29,6 +29,7 @@ public class NFAReader {
             states.add(fromState);
             states.add(toState);
             alphabet.add(symbol);
+            // System.out.println("Accepted: " + fromState);
             Map<Character, Set<Integer>> transitionsFromState = transitions.computeIfAbsent(fromState, k -> new HashMap<>());
             Set<Integer> nextStates = transitionsFromState.computeIfAbsent(symbol, k -> new HashSet<>());
             nextStates.add(toState);
@@ -37,7 +38,6 @@ public class NFAReader {
         }
     }
     reader.close();
-
     return new NFA(states, alphabet, transitions, startState, acceptStates);
 }
 }
